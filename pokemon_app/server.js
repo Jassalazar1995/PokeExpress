@@ -26,9 +26,10 @@ app.get('/st', (req,res) => {
     res.send(pokemons[0])
 })
 
-// app.get('/pokemons/:pokemo', (req,res) => {
-//     res.render('Index', {pokemons: pokemons[req.params.pokemon], pokemo: req.params.pokemo})
-// })
+//Setting up show route
+app.get('/pokemons/:id', (req,res) => {
+    res.render('Show', {id: req.params.id})
+})
 
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
