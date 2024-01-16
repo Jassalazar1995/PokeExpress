@@ -1,5 +1,7 @@
 const express = require('express')
-const pokemon = require('./models/pokemon')
+const pokemons = require('./models/pokemon')
+
+
 
 const app = express()
 
@@ -16,10 +18,18 @@ app.get('/',(req,res) => {
     res.send('Welcome to the Pokemon App!')
 })
 
-app.get('/pokemon', (req,res) =>{
-    res.render('Index', pokemon)
+app.get('/pokemons', (req,res) => {
+    res.render('Index',{ pokemons })
 })
 
-app.listen(PORT, () =>{
+app.get('/st', (req,res) => {
+    res.send(pokemons[0])
+})
+
+// app.get('/pokemons/:pokemo', (req,res) => {
+//     res.render('Index', {pokemons: pokemons[req.params.pokemon], pokemo: req.params.pokemo})
+// })
+
+app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`)
 })
