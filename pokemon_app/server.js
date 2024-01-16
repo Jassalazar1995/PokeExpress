@@ -1,36 +1,30 @@
-const express = require('express')
-const pokemons = require('./models/pokemon')
+const express = require('express');
+const pokemons = require('./models/pokemon');
 
+const app = express();
+const PORT = 3000;
 
+// Load and set up the JSX view engine for Express
+const jsxEngine = require('jsx-view-engine');
+app.set('view engine', 'jsx');
+app.engine('jsx', jsxEngine());
 
-const app = express()
+// Root route sends a welcome message
+app.get('/', (req, res) => {
+    res.send('Welcome to the Pokemon App!');
+});
 
-const PORT = 3000
+// Route to display all pokemons using the Index view
+app.get('/pokemons', (req, res) => {
+    res.render('Index', { pokemons });
+});
 
-//load our engine
-const jsxEngine = require('jsx-view-engine')
+// Route to display a single pokemon using the Show view
+app.get('/pokemons/:id', (req, res) => {
+    res.render('Show', { pokemons, id: req.params.id });
+});
 
-// setup our engine
-app.set('view engine', 'jsx')
-app.engine('jsx',jsxEngine())
-
-app.get('/',(req,res) => {
-    res.send('Welcome to the Pokemon App!')
-})
-
-app.get('/pokemons', (req,res) => {
-    res.render('Index',{ pokemons })
-})
-
-app.get('/st', (req,res) => {
-    res.send(pokemons[0])
-})
-
-//Setting up show route
-app.get('/pokemons/:id', (req,res) => {
-    res.render('Show', {pokemons, id: req.params.id})
-})
-
+// Start the server and listen on the defined port
 app.listen(PORT, () => {
-    console.log(`Listening on port: ${PORT}`)
-})
+    console.log(`Listening on port: ${PORT}`);
+});

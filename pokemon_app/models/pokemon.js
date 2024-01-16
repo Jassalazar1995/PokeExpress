@@ -1,3 +1,4 @@
+// Array containing pokemon data
 const pokemon = [
     {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
     {name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
@@ -8,6 +9,7 @@ const pokemon = [
     {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"}
  ];
 
+// Array containing more pokemon data
 // const pokemon = [
 //     {name: "pikachu", img: "https://img.pokemondb.net/sprites/x-y/normal/pikachu-f.png" },
 //     {name: "bulbasaur", img: "https://img.pokemondb.net/sprites/x-y/normal/bulbasaur.png"},
