@@ -28,7 +28,7 @@ app.get('/st', (req,res) => {
 
 //Setting up show route
 app.get('/pokemons/:id', (req,res) => {
-    res.render('Show', {id: req.params.id})
+    res.render('Show', {pokemons, id: req.params.id})
 })
 
 app.listen(PORT, () => {

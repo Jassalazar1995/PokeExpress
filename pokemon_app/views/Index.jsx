@@ -15,7 +15,7 @@ export default function Index( { pokemons } ){
                 {pokemons.map((pokemon, i) => (
                     <li key = {i}>
                         <a href={`/pokemons/${i}`}>{Capitalizer(pokemon.name)}</a><br />
-                        <img src ={pokemon.img} />
+                        <img src ={pokemon.img + '.jpg'} />
                     </li>
                 ))}
             </ul>
